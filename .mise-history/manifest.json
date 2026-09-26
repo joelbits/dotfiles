@@ -46,6 +46,12 @@
       "variants": []
     },
     {
+      "path": "home/.config/bat/config",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
       "path": "home/.config/iterm2/com.googlecode.iterm2.plist",
       "autosave": true,
       "encrypt": false,

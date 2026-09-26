@@ -8,4 +8,5 @@ starship = "latest"
 auto_update = true
 
 [dotfiles]
+"~/.aliases" = { mode = "track" }
 "~/.config/mise/config.toml" = { mode = "track" }

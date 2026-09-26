@@ -1,0 +1,9 @@
+alias ll='ls -alh'
+alias ssha='autossh -M 0 -o ServerAliveInterval=30 -o ServerAliveCountMax=2'
+
+alias claw='ssh openclaw@serverito-openclaw'
+alias deploy='ssh deploy@serverito-deploy'
+alias joelbits='ssh joelbits@example-server'
+
+alias k='kubectl'
+alias h='helm'

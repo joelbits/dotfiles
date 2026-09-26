@@ -1,0 +1,1 @@
+/root/.local/share/mise/bootstrap-repo/.bashrc

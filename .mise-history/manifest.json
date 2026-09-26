@@ -26,6 +26,20 @@
       "variants": []
     },
     {
+      "path": "home/.bashrc",
+      "autosave": true,
+      "encrypt": false,
+      "variants": [
+        {
+          "os": [
+            "linux"
+          ],
+          "profile": null,
+          "default": false
+        }
+      ]
+    },
+    {
       "path": "home/.common.sh",
       "autosave": true,
       "encrypt": false,

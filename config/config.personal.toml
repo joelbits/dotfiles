@@ -4,3 +4,7 @@ bun = "latest"
 [bootstrap.packages]
 "brew-cask:iterm2" = "latest"
 "brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+
+[bootstrap.macos.defaults."com.googlecode.iterm2"]
+LoadPrefsFromCustomFolder = true
+PrefsCustomFolder = "~/.config/iterm2"

@@ -3,3 +3,8 @@ kubectl = "latest"
 helm = "latest"
 k9s = "latest"
 kubectx = "latest"
+kubens = "latest"
+
+[bootstrap.packages]
+"apt:vim" = "latest"
+"apt:bash-completion" = "latest"

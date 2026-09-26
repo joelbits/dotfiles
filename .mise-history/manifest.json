@@ -46,6 +46,20 @@
       "variants": []
     },
     {
+      "path": "home/.config/iterm2/com.googlecode.iterm2.plist",
+      "autosave": true,
+      "encrypt": false,
+      "variants": [
+        {
+          "os": [
+            "macos"
+          ],
+          "profile": null,
+          "default": false
+        }
+      ]
+    },
+    {
       "path": "home/.config/shell/completion.bash",
       "autosave": true,
       "encrypt": false,

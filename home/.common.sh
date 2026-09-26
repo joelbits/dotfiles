@@ -22,14 +22,22 @@ mkcd() {
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# File picker: syntax-highlighted preview
+# Ctrl-T: files
+# - Keep the filename/right side visible for long paths
+# - Give most of the screen to the file preview
 export FZF_CTRL_T_OPTS="
-  --preview 'bat --style=numbers --color=always --line-range :500 {}'
+  --keep-right
+  --ellipsis '…'
+  --preview 'printf \"\033[1m%s\033[0m\n\033[2m%s\033[0m\n\n\" \"\$(basename {})\" \"\$(dirname {})\"; bat --style=numbers --color=always --line-range :500 {}'
+  --preview-window 'right:75%:border-left'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'
 "
 
-# Directory picker
+# Alt-C: directories
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 export FZF_ALT_C_OPTS="
+  --keep-right
+  --ellipsis '…'
   --preview 'ls -la {} | head -100'
+  --preview-window 'right:75%:border-left'
 "

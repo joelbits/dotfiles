@@ -11,3 +11,4 @@ auto_update = true
 "~/.aliases" = { mode = "track" }
 "~/.common.sh" = { mode = "track" }
 "~/.config/mise/config.toml" = { mode = "track" }
+"~/.config/starship.toml" = { mode = "track" }

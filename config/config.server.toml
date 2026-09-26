@@ -2,3 +2,4 @@
 kubectl = "latest"
 helm = "latest"
 k9s = "latest"
+kubectx = "latest"

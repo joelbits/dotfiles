@@ -1,0 +1,6 @@
+[tools]
+bun = "latest"
+
+[bootstrap.packages]
+"brew-cask:iterm2" = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"

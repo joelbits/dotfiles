@@ -13,3 +13,4 @@ auto_update = true
 "~/.config/mise/config.toml" = { mode = "track" }
 "~/.config/shell/completion.bash" = { mode = "track" }
 "~/.config/starship.toml" = { mode = "track" }
+"~/.zshrc" = { mode = "track", variants = [{ os = "macos" }] }

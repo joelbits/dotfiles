@@ -9,4 +9,5 @@ auto_update = true
 
 [dotfiles]
 "~/.aliases" = { mode = "track" }
+"~/.common.sh" = { mode = "track" }
 "~/.config/mise/config.toml" = { mode = "track" }

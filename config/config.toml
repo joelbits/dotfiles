@@ -1,0 +1,11 @@
+[tools]
+bun = "1.4.2"
+fzf = "latest"
+node = "24"
+starship = "latest"
+
+[settings]
+auto_update = true
+
+[dotfiles]
+"~/.config/mise/config.toml" = { mode = "track" }

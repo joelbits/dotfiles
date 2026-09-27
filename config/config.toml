@@ -22,6 +22,7 @@ broot = { version = "latest", bin_path = '{{ arch(x64="x86_64", arm64="aarch64")
 gh = "latest"
 dust = "latest"
 duf = "latest"
+xh = "latest"
 
 [settings]
 auto_update = true

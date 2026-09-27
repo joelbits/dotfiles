@@ -18,6 +18,7 @@ k9s = "latest"
 kubectx = "latest"
 kubens = "latest"
 zellij = "latest"
+broot = { version = "latest", bin_path = '{{ arch(x64="x86_64", arm64="aarch64") }}-{{ os(macos="apple-darwin", linux="unknown-linux-gnu", windows="pc-windows-gnu") }}' }
 
 [settings]
 auto_update = true

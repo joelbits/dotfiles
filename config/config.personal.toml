@@ -1,6 +1,9 @@
 [env]
 FZG_EDITOR = "code"
 
+[settings.github]
+credential_command = 'gh auth token --hostname "$MISE_CREDENTIAL_HOST"'
+
 [tools]
 bun = "latest"
 

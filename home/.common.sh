@@ -16,6 +16,20 @@ mkcd() {
   mkdir -p "$1" && cd "$1"
 }
 
+mise-server() {
+  if [ -z "$1" ]; then
+    echo "usage: mise-server <ssh-host>"
+    echo "example: mise-server root@192.168.1.100"
+    return 1
+  fi
+
+  mise bootstrap remote \
+    --host "$1" \
+    --install-mise \
+    --adopt git@github.com:joelbits/dotfiles.git \
+    --remote-env server
+}
+
 # ── fzf ──────────────────────────────────────────
 
 # Use fd instead of find

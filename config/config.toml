@@ -23,6 +23,7 @@ gh = "latest"
 dust = "latest"
 duf = "latest"
 xh = "latest"
+"aqua:quantumsheep/sshs" = "latest"
 
 [settings]
 auto_update = true

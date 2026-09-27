@@ -21,6 +21,7 @@ zellij = "latest"
 broot = { version = "latest", bin_path = '{{ arch(x64="x86_64", arm64="aarch64") }}-{{ os(macos="apple-darwin", linux="unknown-linux-gnu", windows="pc-windows-gnu") }}' }
 gh = "latest"
 dust = "latest"
+duf = "latest"
 
 [settings]
 auto_update = true

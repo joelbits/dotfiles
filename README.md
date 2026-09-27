@@ -9,3 +9,13 @@ curl https://mise.run | sh && \
 export PATH="$HOME/.local/bin:$PATH" && \
 mise -E personal bootstrap --adopt git@github.com:joelbits/dotfiles.git --yes
 ```
+
+## Setup Git-profile manually
+
+`~/.gitconfig.local`:
+
+```toml
+[user]
+    name = <YOUR_NAME>
+    email = <YOUR_EMAIL>
+```

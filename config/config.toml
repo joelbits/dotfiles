@@ -11,6 +11,13 @@ lazygit = "latest"
 jq = "latest"
 yq = "latest"
 
+# Kubernetes
+kubectl = "latest"
+helm = "latest"
+k9s = "latest"
+kubectx = "latest"
+kubens = "latest"
+
 [settings]
 auto_update = true
 

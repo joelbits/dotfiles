@@ -84,6 +84,12 @@
       "variants": []
     },
     {
+      "path": "home/.config/zellij/config.kdl",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
       "path": "home/.gitconfig",
       "autosave": true,
       "encrypt": false,

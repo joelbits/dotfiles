@@ -34,5 +34,6 @@ auto_update = true
 "~/.config/mise/config.work.toml" = { mode = "track" }
 "~/.config/shell/completion.bash" = { mode = "track" }
 "~/.config/starship.toml" = { mode = "track" }
+"~/.config/zellij/config.kdl" = { mode = "track" }
 "~/.gitconfig" = { mode = "track" }
 "~/.zshrc" = { mode = "track", variants = [{ os = "macos" }] }

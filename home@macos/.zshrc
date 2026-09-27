@@ -44,3 +44,4 @@ bindkey '^G' _fzg_widget
 
 # prompt
 eval "$(starship init zsh)"
+source /Users/joelprivat/.config/broot/launcher/bash/br

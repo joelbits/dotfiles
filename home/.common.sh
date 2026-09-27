@@ -44,6 +44,31 @@ mise-server() {
     --yes
 }
 
+mig() {
+  if [ $# -eq 0 ]; then
+    echo "usage: mig [personal|server|work] <tool[@version]>..."
+    return 1
+  fi
+
+  local config="$HOME/.config/mise/config.toml"
+
+  case "$1" in
+    personal|server|work)
+      config="$HOME/.config/mise/config.$1.toml"
+      shift
+      ;;
+  esac
+
+  if [ $# -eq 0 ]; then
+    echo "usage: mig [personal|server|work] <tool[@version]>..."
+    return 1
+  fi
+
+  mise use --path "$config" "$@" &&
+    mise dot save &&
+    mise dot sync
+}
+
 # ── fzf ──────────────────────────────────────────
 
 # Use fd instead of find

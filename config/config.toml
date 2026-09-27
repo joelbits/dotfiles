@@ -17,6 +17,7 @@ helm = "latest"
 k9s = "latest"
 kubectx = "latest"
 kubens = "latest"
+zellij = "latest"
 
 [settings]
 auto_update = true

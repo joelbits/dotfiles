@@ -113,6 +113,40 @@ mise-server() {
 }
 ```
 
+## Bootstrap a work machine
+
+Work machines use the `work` environment and treat this repository as a
+pull-only source of configuration.
+
+On a fresh Ubuntu machine:
+
+```bash
+sudo apt-get update && sudo apt-get install -y git curl && { [ ! -f ~/.bashrc ] || [ -e ~/.bashrc.bak ] || mv ~/.bashrc ~/.bashrc.bak; } && curl https://mise.run | sh && ~/.local/bin/mise bootstrap --adopt https://github.com/joelbits/dotfiles.git --env work --yes
+```
+
+This:
+
+1. installs the bootstrap prerequisites
+2. preserves the existing `.bashrc` as `.bashrc.bak`
+3. installs mise
+4. adopts the public dotfiles repository
+5. selects the `work` environment
+6. installs the shared and work-specific configuration
+
+No GitHub credentials are required.
+
+### Updating the work machine
+
+Changes originate from a personal machine and are only pulled into the work
+machine:
+
+```bash
+mise dot sync && mise dot pull && mise bootstrap
+```
+
+The work machine should not run `mise dot save` or publish changes back to the
+repository.
+
 ## Dotfile workflow
 
 After changing tracked files on a machine:

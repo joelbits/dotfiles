@@ -17,17 +17,31 @@ mkcd() {
 }
 
 mise-server() {
-  if [ -z "$1" ]; then
-    echo "usage: mise-server <ssh-host>"
-    echo "example: mise-server root@192.168.1.100"
-    return 1
-  fi
+  local host="${1:?usage: mise-server root@HOST}"
 
+  echo "==> Preparing $host"
+  ssh "$host" '
+    command -v apt-get >/dev/null || {
+      echo "ERROR: mise-server currently requires an apt-based system"
+      exit 1
+    }
+
+    apt-get update &&
+    apt-get install -y git curl &&
+    {
+      [ ! -f ~/.bashrc ] ||
+      [ -e ~/.bashrc.bak ] ||
+      mv ~/.bashrc ~/.bashrc.bak
+    }
+  ' || return
+
+  echo "==> Bootstrapping $host"
   mise bootstrap remote \
-    --host "$1" \
+    --host "$host" \
     --install-mise \
-    --adopt git@github.com:joelbits/dotfiles.git \
-    --remote-env server
+    --adopt https://github.com/joelbits/dotfiles.git \
+    --remote-env server \
+    --yes
 }
 
 # ── fzf ──────────────────────────────────────────

@@ -95,6 +95,125 @@ export FZF_ALT_C_OPTS="
   --preview-window 'right:75%:border-left'
 "
 
+# -- fzf - Git search --------------------------------------
+fgb() {
+  git rev-parse --git-dir >/dev/null 2>&1 || {
+    echo "Not inside a Git repository"
+    return 1
+  }
+
+  local branch
+  branch=$(
+    git for-each-ref \
+      --sort=-committerdate \
+      --format='%(refname:short)' \
+      refs/heads refs/remotes |
+    grep -v '/HEAD$' |
+    fzf \
+      --prompt='branch> ' \
+      --height=80% \
+      --layout=reverse \
+      --border \
+      --preview='git log --color=always --graph --decorate --oneline -20 {}' \
+      --preview-window='right:60%'
+  ) || return
+
+  [ -z "$branch" ] && return
+
+  case "$branch" in
+    origin/*)
+      local local_branch="${branch#origin/}"
+
+      if git show-ref --verify --quiet "refs/heads/$local_branch"; then
+        git switch "$local_branch"
+      else
+        git switch --track "$branch"
+      fi
+      ;;
+    *)
+      git switch "$branch"
+      ;;
+  esac
+}
+
+fgc() {
+  git rev-parse --git-dir >/dev/null 2>&1 || {
+    echo "Not inside a Git repository"
+    return 1
+  }
+
+  local selected hash
+
+  selected=$(
+    git log \
+      --color=always \
+      --format='%C(yellow)%h%Creset %C(cyan)%ad%Creset %C(auto)%d%Creset %s %C(dim white)— %an%Creset' \
+      --date=short |
+    fzf \
+      --ansi \
+      --no-sort \
+      --prompt='commit> ' \
+      --height=90% \
+      --layout=reverse \
+      --border \
+      --preview='
+        hash=$(echo {} | sed "s/\x1b\[[0-9;]*m//g" | awk "{print \$1}")
+        git show --color=always --stat --patch "$hash" | delta
+      ' \
+      --preview-window='right:65%:wrap'
+  ) || return
+
+  [ -z "$selected" ] && return
+
+  hash=$(printf '%s' "$selected" |
+    sed 's/\x1b\[[0-9;]*m//g' |
+    awk '{print $1}')
+
+  git show "$hash"
+}
+
+fgf() {
+  git rev-parse --git-dir >/dev/null 2>&1 || {
+    echo "Not inside a Git repository"
+    return 1
+  }
+
+  local selected file
+
+  selected=$(
+    git status --short |
+      fzf \
+        --ansi \
+        --prompt='changed> ' \
+        --header='Enter: open file • Esc: cancel' \
+        --height=80% \
+        --layout=reverse \
+        --border \
+        --preview='
+          git_status=$(printf "%s" {} | cut -c1-2)
+          file=$(printf "%s" {} | cut -c4-)
+
+          case "$git_status" in
+            "??")
+              bat --color=always --style=numbers "$file"
+              ;;
+            *)
+              {
+                git diff --color=always -- "$file"
+                git diff --cached --color=always -- "$file"
+              } | delta
+              ;;
+          esac
+        ' \
+        --preview-window='right:65%'
+  ) || return
+
+  [ -z "$selected" ] && return
+
+  file=$(printf '%s' "$selected" | cut -c4-)
+  _fzg_open "$file" 1
+}
+
 # ── Live code search ──────────────────────────────
 
 fzg() {

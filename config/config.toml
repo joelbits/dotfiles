@@ -30,6 +30,7 @@ auto_update = true
 "~/.config/mise/config.personal.toml" = { mode = "track" }
 "~/.config/mise/config.server.toml" = { mode = "track" }
 "~/.config/mise/config.toml" = { mode = "track" }
+"~/.config/mise/config.work.toml" = { mode = "track" }
 "~/.config/shell/completion.bash" = { mode = "track" }
 "~/.config/starship.toml" = { mode = "track" }
 "~/.gitconfig" = { mode = "track" }

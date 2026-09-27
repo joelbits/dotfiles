@@ -1,0 +1,11 @@
+[env]
+FZG_EDITOR = "idea"
+
+[bootstrap.packages]
+"apt:vim" = "latest"
+"apt:bash-completion" = "latest"
+
+[bootstrap.files."~/.miserc.local.toml"]
+content = '''
+env = ["work"]
+'''

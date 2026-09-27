@@ -1,7 +1,5 @@
 [tools]
-bun = "1.4.2"
 fzf = "latest"
-node = "24"
 starship = "latest"
 zoxide = "latest"
 rg = "latest"

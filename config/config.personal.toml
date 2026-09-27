@@ -6,6 +6,8 @@ credential_command = 'gh auth token --hostname "$MISE_CREDENTIAL_HOST"'
 
 [tools]
 bun = "latest"
+pnpm = "latest"
+node = "24"
 
 [bootstrap.packages]
 "brew-cask:iterm2" = "latest"

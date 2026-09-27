@@ -8,6 +8,10 @@ rg = "latest"
 fd = "latest"
 bat = "latest"
 delta = "latest"
+eza = "latest"
+lazygit = "latest"
+jq = "latest"
+yq = "latest"
 
 [settings]
 auto_update = true

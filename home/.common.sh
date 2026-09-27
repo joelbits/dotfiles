@@ -1,6 +1,6 @@
 # Editor
-export EDITOR="vim"
-export VISUAL="$EDITOR"
+export EDITOR="${EDITOR:-vim}"
+export VISUAL="${VISUAL:-$EDITOR}"
 
 # SOPS
 export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/keys.txt"
@@ -41,3 +41,50 @@ export FZF_ALT_C_OPTS="
   --preview 'ls -la {} | head -100'
   --preview-window 'right:75%:border-left'
 "
+
+# ── Live code search ──────────────────────────────
+
+fzg() {
+  local selected
+
+  selected=$(
+    fzf --ansi \
+        --disabled \
+        --delimiter : \
+        --bind "start:reload:rg --column --line-number --no-heading --color=always --smart-case '' || true" \
+        --bind "change:reload:rg --column --line-number --no-heading --color=always --smart-case {q} || true" \
+        --preview 'printf "\033[1m%s\033[0m\n\033[2m%s • line %s\033[0m\n\n" "$(basename {1})" "$(dirname {1})" "{2}"; bat --color=always --style=numbers --highlight-line {2} {1}' \
+        --preview-window 'right:75%:border-left:+{2}-3' \
+        --header 'Live grep • type to search code • Enter to open' \
+        --bind 'ctrl-/:change-preview-window(down|hidden|)'
+  ) || return
+
+  [ -z "$selected" ] && return
+
+  local file line
+  file=$(printf '%s' "$selected" | cut -d: -f1)
+  line=$(printf '%s' "$selected" | cut -d: -f2)
+
+  _fzg_open "$file" "$line"
+}
+
+_fzg_open() {
+  local file="$1"
+  local line="$2"
+  local editor="${FZG_EDITOR:-$EDITOR}"
+
+  case "$editor" in
+    code)
+      code --goto "$file:$line"
+      ;;
+    idea)
+      idea --line "$line" "$file"
+      ;;
+    vim|nvim)
+      "$editor" "+$line" "$file"
+      ;;
+    *)
+      "$editor" "$file"
+      ;;
+  esac
+}

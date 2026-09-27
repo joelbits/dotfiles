@@ -34,5 +34,13 @@ if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
 fi
 
+# Ctrl-G - live code search
+_fzg_widget() {
+  fzg
+  zle reset-prompt
+}
+zle -N _fzg_widget
+bindkey '^G' _fzg_widget
+
 # prompt
 eval "$(starship init zsh)"

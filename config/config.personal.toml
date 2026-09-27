@@ -1,3 +1,6 @@
+[env]
+FZG_EDITOR = "code"
+
 [tools]
 bun = "latest"
 
@@ -5,6 +8,7 @@ bun = "latest"
 "brew-cask:iterm2" = "latest"
 "brew-cask:font-jetbrains-mono-nerd-font" = "latest"
 
-[bootstrap.macos.defaults."com.googlecode.iterm2"]
-LoadPrefsFromCustomFolder = true
-PrefsCustomFolder = "~/.config/iterm2"
+[bootstrap.files."~/.miserc.local.toml"]
+content = '''
+env = ["personal"]
+'''

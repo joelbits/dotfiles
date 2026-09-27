@@ -1,3 +1,6 @@
+[env]
+FZG_EDITOR = "vim"
+
 [tools]
 kubectl = "latest"
 helm = "latest"
@@ -8,3 +11,8 @@ kubens = "latest"
 [bootstrap.packages]
 "apt:vim" = "latest"
 "apt:bash-completion" = "latest"
+
+[bootstrap.files."~/.miserc.local.toml"]
+content = '''
+env = ["server"]
+'''

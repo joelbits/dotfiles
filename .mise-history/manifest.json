@@ -58,6 +58,12 @@
       "variants": []
     },
     {
+      "path": "home/.config/git/common.gitconfig",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
       "path": "home/.config/iterm2/com.googlecode.iterm2.plist",
       "autosave": true,
       "encrypt": false,
@@ -93,7 +99,13 @@
       "path": "home/.gitconfig",
       "autosave": true,
       "encrypt": false,
-      "variants": []
+      "variants": [
+        {
+          "os": [],
+          "profile": "personal",
+          "default": false
+        }
+      ]
     },
     {
       "path": "home/.zshrc",

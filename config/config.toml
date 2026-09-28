@@ -31,7 +31,6 @@ auto_update = true
 "~/.bashrc" = { mode = "track", variants = [{ os = "linux", profile = "server" }] }
 "~/.common.sh" = { mode = "track" }
 "~/.config/bat/config" = { mode = "track" }
-"~/.config/git/common.gitconfig" = {}
 "~/.config/iterm2/com.googlecode.iterm2.plist" = { mode = "track", variants = [{ os = "macos" }] }
 "~/.config/mise/config.personal.toml" = { mode = "track" }
 "~/.config/mise/config.server.toml" = { mode = "track" }
@@ -40,5 +39,6 @@ auto_update = true
 "~/.config/shell/completion.bash" = { mode = "track" }
 "~/.config/starship.toml" = { mode = "track" }
 "~/.config/zellij/config.kdl" = { mode = "track" }
-"~/.gitconfig" = { mode = "track" }
+"~/.gitconfig" = { mode = "track", variants = [{ profile = "personal" }] }
+"~/.config/git/common.gitconfig" = { mode = "track" }
 "~/.zshrc" = { mode = "track", variants = [{ os = "macos" }] }

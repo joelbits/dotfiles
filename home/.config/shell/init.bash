@@ -10,11 +10,11 @@ command -v mise >/dev/null 2>&1 &&
 command -v fzf >/dev/null 2>&1 &&
     eval "$(fzf --bash)"
 
-command -v zoxide >/dev/null 2>&1 &&
-    eval "$(zoxide init bash)"
-
 command -v starship >/dev/null 2>&1 &&
     eval "$(starship init bash)"
 
 [ -f "$HOME/.config/shell/completion.bash" ] &&
     source "$HOME/.config/shell/completion.bash"
+
+command -v zoxide >/dev/null 2>&1 &&
+    eval "$(zoxide init bash)"

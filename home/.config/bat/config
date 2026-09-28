@@ -1,2 +1,1 @@
---theme-dark=gruvbox-dark
---theme-light=gruvbox-light
+--theme="ansi"

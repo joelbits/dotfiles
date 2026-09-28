@@ -8,6 +8,8 @@ credential_command = 'gh auth token --hostname "$MISE_CREDENTIAL_HOST"'
 bun = "latest"
 pnpm = "latest"
 node = "24"
+gh = "latest"
+"aqua:quantumsheep/sshs" = "latest"
 
 [bootstrap.packages]
 "brew-cask:iterm2" = "latest"

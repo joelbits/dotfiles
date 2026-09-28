@@ -31,6 +31,7 @@ auto_update = true
 "~/.bashrc" = { mode = "track", variants = [{ os = "linux", profile = "server" }] }
 "~/.common.sh" = { mode = "track" }
 "~/.config/bat/config" = { mode = "track" }
+"~/.config/git/common.gitconfig" = {}
 "~/.config/iterm2/com.googlecode.iterm2.plist" = { mode = "track", variants = [{ os = "macos" }] }
 "~/.config/mise/config.personal.toml" = { mode = "track" }
 "~/.config/mise/config.server.toml" = { mode = "track" }

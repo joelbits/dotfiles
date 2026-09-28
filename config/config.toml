@@ -28,7 +28,7 @@ auto_update = true
 
 [dotfiles]
 "~/.aliases" = { mode = "track" }
-"~/.bashrc" = { mode = "track", variants = [{ os = "linux" }] }
+"~/.bashrc" = { mode = "track", variants = [{ os = "linux", profile = "server" }] }
 "~/.common.sh" = { mode = "track" }
 "~/.config/bat/config" = { mode = "track" }
 "~/.config/iterm2/com.googlecode.iterm2.plist" = { mode = "track", variants = [{ os = "macos" }] }

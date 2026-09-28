@@ -40,7 +40,7 @@
           "os": [
             "linux"
           ],
-          "profile": null,
+          "profile": "server",
           "default": false
         }
       ]

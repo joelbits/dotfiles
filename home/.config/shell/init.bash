@@ -1,0 +1,1 @@
+/Users/joelprivat/.dotfiles/.config/shell/init.bash

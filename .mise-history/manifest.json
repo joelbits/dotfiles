@@ -84,6 +84,12 @@
       "variants": []
     },
     {
+      "path": "home/.config/shell/init.bash",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
       "path": "home/.config/starship.toml",
       "autosave": true,
       "encrypt": false,

@@ -240,6 +240,11 @@ fzg() {
   _fzg_open "$file" "$line"
 }
 
+# Ctrl+G -> fzg
+if [ -n "${BASH_VERSION:-}" ]; then
+    bind -x '"\C-g":fzg'
+fi
+
 _fzg_open() {
   local file="$1"
   local line="$2"

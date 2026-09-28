@@ -28,6 +28,7 @@ auto_update = true
 
 [dotfiles]
 "~/.aliases" = { mode = "track" }
+"~/.config/shell/init.bash" = { mode = "track" }
 "~/.bashrc" = { mode = "track", variants = [{ os = "linux", profile = "server" }] }
 "~/.common.sh" = { mode = "track" }
 "~/.config/bat/config" = { mode = "track" }
@@ -38,7 +39,6 @@ auto_update = true
 "~/.config/mise/config.toml" = { mode = "track" }
 "~/.config/mise/config.work.toml" = { mode = "track" }
 "~/.config/shell/completion.bash" = { mode = "track" }
-"~/.config/shell/init.bash" = {}
 "~/.config/starship.toml" = { mode = "track" }
 "~/.config/zellij/config.kdl" = { mode = "track" }
 "~/.gitconfig" = { mode = "track", variants = [{ profile = "personal" }] }

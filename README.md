@@ -118,7 +118,20 @@ mise-server() {
 Work machines use the `work` environment and treat this repository as a
 pull-only source of configuration.
 
-On a fresh Ubuntu machine:
+On a work machine with existing complex `.bashrc` config, make this additive by just adding the following to existing `.bashrc`:  
+
+```bash
+# Personal shell setup
+export PATH="$HOME/.local/bin:$PATH"
+
+[ -f "$HOME/.common.sh" ] && source "$HOME/.common.sh"
+
+command -v mise >/dev/null 2>&1 && eval "$(mise activate bash)"
+command -v starship >/dev/null 2>&1 && eval "$(starship init bash)"
+
+[ -f "$HOME/.config/shell/completion.bash" ] &&
+    source "$HOME/.config/shell/completion.bash"
+```
 
 ```bash
 sudo apt-get update && sudo apt-get install -y git curl && { [ ! -f ~/.bashrc ] || [ -e ~/.bashrc.bak ] || mv ~/.bashrc ~/.bashrc.bak; } && curl https://mise.run | sh && ~/.local/bin/mise bootstrap --adopt https://github.com/joelbits/dotfiles.git --env work --yes

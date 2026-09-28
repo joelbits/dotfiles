@@ -133,8 +133,15 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init bash)"
     source "$HOME/.config/shell/completion.bash"
 ```
 
+Bootstrap (remove `--dry-run` if results look OK after first run):
+
 ```bash
-sudo apt-get update && sudo apt-get install -y git curl && { [ ! -f ~/.bashrc ] || [ -e ~/.bashrc.bak ] || mv ~/.bashrc ~/.bashrc.bak; } && curl https://mise.run | sh && ~/.local/bin/mise bootstrap --adopt https://github.com/joelbits/dotfiles.git --env work --yes
+sudo apt-get update && sudo apt-get install -y git curl && { [ ! -f ~/.bashrc ] || [ -e ~/.bashrc.bak ] || mv ~/.bashrc ~/.bashrc.bak; } && curl https://mise.run | sh && ~/.local/bin/mise bootstrap --adopt https://github.com/joelbits/dotfiles.git --env work --yes --dry-run
+```
+
+Add common Git config to existing .gitconfig :  
+```bash
+git config --global --add include.path ~/.config/git/common.gitconfig
 ```
 
 This:
